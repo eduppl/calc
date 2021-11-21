@@ -1,0 +1,24 @@
+const cost_input = document.querySelector('.cost');
+const service_input = document.querySelector ('.service');
+const people_input = document.querySelector('.people');
+
+const tip_btn = document.querySelector('#tip-btn');
+
+// document.querySelector('#tip-btn').onclick = tip-btnTip;
+
+tip_btn.addEventListener('click', calc_tip);
+
+function calc_tip() {
+    let cost = Number(cost_input.value);
+    let service = Number(service_input.value) /100;
+    let people = Number(people_input.value);
+
+    // let cost = document.querySelector('#cost_input').value;
+    // let service = document.querySelector('#service_input').value /100;
+    // let people = document.querySelector('#people_input').value;
+
+    let tip = (cost * service) / people;
+
+    let tip_el = document.querySelector('.tip');
+    tip_el.innerText = '$' + tip.toFixed(2) + ((people > 1)? ' each' : '');
+}
